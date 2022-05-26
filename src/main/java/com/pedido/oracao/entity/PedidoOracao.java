@@ -37,7 +37,7 @@ public class PedidoOracao implements Serializable{
 	private String nome;
 	
 	@Column(nullable = false, length = 130)
-	private String logradouro;
+	private String contato;
 	
 	private String descricao;
 	
