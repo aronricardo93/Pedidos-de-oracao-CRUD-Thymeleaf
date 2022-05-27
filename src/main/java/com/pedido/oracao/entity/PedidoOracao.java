@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.pedido.oracao.entities.enums.Motivo;
+import com.pedido.oracao.entity.enums.Motivo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

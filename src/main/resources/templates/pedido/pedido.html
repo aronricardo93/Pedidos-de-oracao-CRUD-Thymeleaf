@@ -3,36 +3,48 @@
 <meta charset="UTF-8">
 <div layout:fragment="content">
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Para quem é a oração?<strong style="color:red;">*</strong></label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" required>
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Contato:</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="(xx) xxxx-xxxx ">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Descrição do pedido:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Digite aqui uma breve descrição"></textarea>
-</div>
-<div class="mb-3">
-	<label for="exampleFormControlTextarea1" class="form-label">Motivo do pedido da oração:</label>
-	<select class="form-select form-select-sm" aria-label=".form-select-sm example">
-  		<option selected="selected">Selecione</option>
-  		<option value="1">Libertação</option>
-		<option value="2">Proteção</option>
-		<option value="3">Saúde</option>
-		<option value="4">Relacionamento</option>
-		<option value="5">Finanças</option>
-		<option value="6">Agradecimento</option>
-		<option value="7">Intercessão</option>
-		<option value="8">Emprego</option>
-		<option value="9">Processo judicial</option>
-		<option value="10">Propósto</option>
-		<option value="11">Familia</option>
-		<option value="12">Outro</option>
-	</select>
-</div>
-<button type="button" class="btn btn-primary btn-lg">Enviar</button>
+<form method="post" th:object="${pedido}" th:action="@{/pedidos}">
+	<img src="assets/pedidos-de-oracao.png" alt="pedido-imagem" width="300"
+		height="100" class="d-inline-block align-text-top"
+		style="margin-left: 430px; margin-top: 10px">
+	<div class="mb-3">
+		<label for="exampleFormControlInput1" class="form-label">Para
+			quem é a oração? <strong style="color: red;">*</strong>
+		</label> <input type="text" class="form-control"
+			id="exampleFormControlInput1" th:field="*{nome}" required>
+	</div>
+	<div class="mb-3">
+		<label for="exampleFormControlInput1" class="form-label">Contato:</label>
+		<input type="number" class="form-control" th:field="*{contato}" id="exampleFormControlInput1"
+			placeholder="(xx) xxxx-xxxx ">
+	</div>
+	<div class="mb-3">
+		<label for="exampleFormControlTextarea1" class="form-label">Descrição
+			do pedido:</label>
+		<textarea class="form-control" th:field="*{descricao}" id="exampleFormControlTextarea1"
+			rows="3" placeholder="Digite aqui uma breve descrição"></textarea>
+	</div>
+	<div class="mb-3">
+		<label for="exampleFormControlTextarea1" class="form-label">Motivo
+			do pedido da oração: <strong style="color:red;">*</strong></label> 
+			<select class="form-select form-select-sm"
+			aria-label=".form-select-sm example" th:field="*{motivo}" required>
+			<option th:value="NULL" selected="selected">Selecione</option>
+			<option th:value="LIBERTACAO">Libertação</option>
+			<option th:value="PROTECAO">Proteção</option>
+			<option th:value="SAUDE">Saúde</option>
+			<option th:value="RELACIONAMENTO">Relacionamento</option>
+			<option th:value="FINANCAS">Finanças</option>
+			<option th:value="AGRADECIMENTO">Agradecimento</option>
+			<option th:value="INTERCESSAO">Intercessão</option>
+			<option th:value="EMPREGO">Emprego</option>
+			<option th:value="PROCESSO_JUDICIAL">Processo judicial</option>
+			<option th:value="PROPOSITO">Propósito</option>
+			<option th:value="FAMILIA">Familia</option>
+			<option th:value="OUTRO">Outro</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+</form>
 </div>
 </html>

@@ -1,4 +1,4 @@
-package com.pedido.oracao.entities.enums;
+package com.pedido.oracao.entity.enums;
 
 public enum Motivo {
 

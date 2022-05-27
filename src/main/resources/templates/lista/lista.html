@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/layout.html}">
+<meta charset="UTF-8">
+<div layout:fragment="content">
+
+<table class="table table-light table-hover table-sm" style="margin-top:40px;">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Contato</th>
+			<th>Motivo da Oração</th>
+			<th>Descrição</th>
+		</tr>
+	</thead>
+	<tbody class="table-group-divider">
+		<tr th:each="pedido : ${listaPedidos}">
+			<td th:text="${pedido.nome}"></td>
+			<td th:text="${pedido.contato}"></td>
+			<td th:text="${pedido.motivo}"></td>
+			<td th:text="${pedido.descricao}"></td>
+			<td> <button class="btn btn-primary me-md-2" type="button">Editar</button></td>
+			<td> <button class="btn btn-danger me-md-2" type="button">Excluir</button></td>
+		</tr>
+	</tbody>
+</table>
+<button class="btn btn-success" type="submit"><img src="assets/zap-icon.png" alt="zap-icon" width="30"
+		height="30"> Enviar para WhatsApp</button>
+
+</div>
+</html>
